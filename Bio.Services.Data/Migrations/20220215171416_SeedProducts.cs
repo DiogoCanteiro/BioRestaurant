@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Bio.Services.ProductAPI.Migrations
+namespace Bio.Services.Data.Migrations
 {
     public partial class SeedProducts : Migration
     {

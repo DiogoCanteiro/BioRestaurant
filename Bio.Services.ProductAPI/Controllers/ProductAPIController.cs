@@ -1,5 +1,6 @@
-﻿using Bio.Services.ProductAPI.Models;
-using Bio.Services.ProductAPI.Repository;
+﻿using Bio.Services.Business.Interfaces;
+using Bio.Services.Models;
+using Bio.Services.ProductAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,11 @@ namespace Bio.Services.ProductAPI.Controllers
     public class ProductAPIController : ControllerBase
     {
         protected ResponseDTO _response;
-        private IProductRepository _productRepository;
+        private IProductService _productService;
 
-        public ProductAPIController(IProductRepository productRepository)
+        public ProductAPIController(IProductService productService)
         {
-            _productRepository = productRepository;
+            _productService = productService;
             _response = new ResponseDTO();
         }
         
@@ -25,7 +26,7 @@ namespace Bio.Services.ProductAPI.Controllers
         {
             try
             {
-                IEnumerable<ProductDTO> productDTOs = await _productRepository.GetProducts();
+                IEnumerable<ProductDTO> productDTOs = await _productService.GetProducts();
                 _response.Result = productDTOs;
             }
             catch(Exception ex)
@@ -46,7 +47,7 @@ namespace Bio.Services.ProductAPI.Controllers
         {
             try
             {
-                ProductDTO productDTO = await _productRepository.GetProductById(id);
+                ProductDTO productDTO = await _productService.GetProductById(id);
                 _response.Result = productDTO;
             }
             catch (Exception ex)
@@ -66,7 +67,7 @@ namespace Bio.Services.ProductAPI.Controllers
         {
             try
             {
-                ProductDTO model = await _productRepository.CreateUpdateProduct(productDTO);
+                ProductDTO model = await _productService.CreateUpdateProduct(productDTO);
                 _response.Result = model;
             }
             catch (Exception ex)
@@ -86,7 +87,7 @@ namespace Bio.Services.ProductAPI.Controllers
         {
             try
             {
-                ProductDTO model = await _productRepository.CreateUpdateProduct(productDTO);
+                ProductDTO model = await _productService.CreateUpdateProduct(productDTO);
                 _response.Result = model;
             }
             catch (Exception ex)
@@ -106,7 +107,7 @@ namespace Bio.Services.ProductAPI.Controllers
         {
             try
             {
-                bool isSuccess = await _productRepository.DeleteProduct(id);
+                bool isSuccess = await _productService.DeleteProduct(id);
                 _response.Result = isSuccess;
             }
             catch (Exception ex)

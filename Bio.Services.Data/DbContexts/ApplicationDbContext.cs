@@ -1,11 +1,7 @@
-﻿using Bio.Services.ProductAPI.Models;
+﻿using Bio.Services.Data.DbModels;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Bio.Services.ProductAPI.DbContexts
+namespace Bio.Services.Data.DbContexts
 {
     public class ApplicationDbContext : DbContext
     {
@@ -19,7 +15,6 @@ namespace Bio.Services.ProductAPI.DbContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
 
             modelBuilder.Entity<Product>().HasData(new Product
             {

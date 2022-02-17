@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Bio.Services.ProductAPI.Models
+namespace Bio.Services.Models
 {
     public class ProductDTO
     {

@@ -1,10 +1,8 @@
-﻿using Bio.Services.ProductAPI.Models;
-using System;
+﻿using Bio.Services.Models;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace Bio.Services.ProductAPI.Repository
+namespace Bio.Services.Data.Interfaces
 {
     public interface IProductRepository
     {
