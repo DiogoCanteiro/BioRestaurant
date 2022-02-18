@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Bio.Services.Data.DbContexts;
+﻿using Bio.Services.Data.DbContexts;
 using Bio.Services.Data.DbModels;
 using Bio.Services.Data.Interfaces;
 using Bio.Services.Models;
@@ -10,66 +9,18 @@ using System.Threading.Tasks;
 
 namespace Bio.Services.Data.Repositories
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : BaseRepository, IProductRepository
     {
-        private readonly ApplicationDbContext _db;
-        private IMapper _mapper;
+        public ProductRepository(ApplicationDbContext db) : base(db) { }
 
-        public ProductRepository(ApplicationDbContext db, IMapper mapper)
+        public async Task<Product> GetProductById(int productId)
         {
-            _db = db;
-            _mapper = mapper;
+            return await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
         }
 
-        public async Task<ProductDTO> CreateUpdateProduct(ProductDTO productDTO)
+        public async Task<IEnumerable<Product>> GetProducts()
         {
-            Product product = _mapper.Map<Product>(productDTO);
-
-            if (product.ProductId > 0)
-            {
-                _db.Products.Update(product);
-            }
-            else
-            {
-                _db.Products.Add(product);
-            }
-
-            await _db.SaveChangesAsync();
-
-            return _mapper.Map<ProductDTO>(product);
-        }
-
-        public async Task<bool> DeleteProduct(int productId)
-        {
-            try
-            {
-                Product product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
-
-                if (product == null)
-                    return false;
-
-                _db.Remove(product);
-                await _db.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public async Task<ProductDTO> GetProductById(int productId)
-        {
-            Product product = await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
-
-            return _mapper.Map<ProductDTO>(product);
-        }
-
-        public async Task<IEnumerable<ProductDTO>> GetProducts()
-        {
-            List<Product> productList = await _db.Products.ToListAsync();
-
-            return _mapper.Map<List<ProductDTO>>(productList);
+            return await _db.Products.ToListAsync();
         }
     }
 }

@@ -8,7 +8,13 @@ namespace Bio.Services.Business.AutoMapper
     {
         public AutoMapperProfiles()
         {
-            CreateMap<ProductDTO, Product>().ReverseMap();
+            //Products
+            CreateMap<ProductDTO, Product>();
+            //CreateMap<Product, ProductDTO>()
+            //    .ForMember(p => p.CategoryName, p => p.MapFrom(src => src.Category.Name));
+
+            //// Categories
+            CreateMap<CategoryDTO, Category>().ReverseMap();
         }
     }
 }

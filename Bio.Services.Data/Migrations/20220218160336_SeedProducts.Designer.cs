@@ -3,14 +3,16 @@ using Bio.Services.Data.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Bio.Services.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220218160336_SeedProducts")]
+    partial class SeedProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -18,54 +20,12 @@ namespace Bio.Services.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.14")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Bio.Services.Data.DbModels.Category", b =>
-                {
-                    b.Property<int>("CategoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CategoryId");
-
-                    b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            CategoryId = 1,
-                            Description = "A fruit is a mature ovary and its associated parts.",
-                            Name = "Fruit"
-                        },
-                        new
-                        {
-                            CategoryId = 2,
-                            Description = "Dessert is a course that concludes a meal.",
-                            Name = "Dessert"
-                        },
-                        new
-                        {
-                            CategoryId = 3,
-                            Description = "Dish served before the main course of a meal.",
-                            Name = "Entree"
-                        });
-                });
-
             modelBuilder.Entity("Bio.Services.Data.DbModels.Product", b =>
                 {
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -82,15 +42,12 @@ namespace Bio.Services.Data.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Products");
 
                     b.HasData(
                         new
                         {
                             ProductId = 1,
-                            CategoryId = 1,
                             Description = "A mango is an edible stone fruit produced by the tropical tree Mangifera indica.",
                             ImageUrl = "",
                             Name = "Mango",
@@ -99,7 +56,6 @@ namespace Bio.Services.Data.Migrations
                         new
                         {
                             ProductId = 2,
-                            CategoryId = 3,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur erat in tristique molestie. Mauris consectetur nulla sed sem mattis pulvinar.<br/>Aliquam posuere, lorem a lobortis malesuada, odio dui vestibulum nisl, vel suscipit leo augue in ante",
                             ImageUrl = "",
                             Name = "Cheese Ball",
@@ -108,7 +64,6 @@ namespace Bio.Services.Data.Migrations
                         new
                         {
                             ProductId = 3,
-                            CategoryId = 2,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur erat in tristique molestie. Mauris consectetur nulla sed sem mattis pulvinar.<br/>Aliquam posuere, lorem a lobortis malesuada, odio dui vestibulum nisl, vel suscipit leo augue in ante",
                             ImageUrl = "",
                             Name = "Cupcake",
@@ -117,23 +72,11 @@ namespace Bio.Services.Data.Migrations
                         new
                         {
                             ProductId = 4,
-                            CategoryId = 3,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur erat in tristique molestie. Mauris consectetur nulla sed sem mattis pulvinar.<br/>Aliquam posuere, lorem a lobortis malesuada, odio dui vestibulum nisl, vel suscipit leo augue in ante",
                             ImageUrl = "",
                             Name = "Hibachi Chicken",
                             Price = 15.0
                         });
-                });
-
-            modelBuilder.Entity("Bio.Services.Data.DbModels.Product", b =>
-                {
-                    b.HasOne("Bio.Services.Data.DbModels.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

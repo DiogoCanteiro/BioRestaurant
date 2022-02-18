@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bio.Services.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220215170711_AddProductModelToDb")]
+    [Migration("20220218160201_AddProductModelToDb")]
     partial class AddProductModelToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,9 +26,6 @@ namespace Bio.Services.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
