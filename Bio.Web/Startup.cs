@@ -26,7 +26,7 @@ namespace Bio.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient<IProductService, ProductService>();
-            Configurations.ProductApiBase = Configuration["ServicesUrl:ProductAPI"];
+            Configurations.ProductApiBase = Configuration["ServicesUrls:ProductAPI"];
 
             services.AddScoped<IProductService, ProductService>();
             services.AddControllersWithViews();

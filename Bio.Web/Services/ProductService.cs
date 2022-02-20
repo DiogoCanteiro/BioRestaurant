@@ -35,7 +35,7 @@ namespace Bio.Web.Services
             var apiRequest = new ApiRequest
             {
                 APIType = Configurations.APIType.DELETE,
-                Url = $"{Configurations.ProductApiBase}/api/products{id}",
+                Url = $"{Configurations.ProductApiBase}/api/products/{id}",
                 AccessToken = ""
             };
 
@@ -59,7 +59,7 @@ namespace Bio.Web.Services
             var apiRequest = new ApiRequest
             {
                 APIType = Configurations.APIType.GET,
-                Url = $"{Configurations.ProductApiBase}/api/products{id}",
+                Url = $"{Configurations.ProductApiBase}/api/products/{id}",
                 AccessToken = ""
             };
 

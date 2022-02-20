@@ -34,7 +34,6 @@ namespace Bio.Services.Business.Implementations
             {
                 product = await _productRepository.Create(product);
             }
-
             return _mapper.Map<ProductDTO>(product);
         }
 

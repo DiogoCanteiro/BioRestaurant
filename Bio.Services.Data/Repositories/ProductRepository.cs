@@ -20,7 +20,9 @@ namespace Bio.Services.Data.Repositories
 
         public async Task<IEnumerable<Product>> GetProducts()
         {
-            return await _db.Products.ToListAsync();
+            return await _db.Products
+                .Include(p => p.Category)
+                .ToListAsync();
         }
     }
 }
