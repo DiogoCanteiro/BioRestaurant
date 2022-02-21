@@ -19,6 +19,8 @@ namespace Bio.Web.Models
 
         public string CategoryName { get; set; }
 
+        public List<CategoryDTO> Categories { get; set; }
+
         public string ImageUrl { get; set; }
     }
 }

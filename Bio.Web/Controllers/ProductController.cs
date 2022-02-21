@@ -1,6 +1,7 @@
 ﻿using Bio.Web.Models;
 using Bio.Web.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace Bio.Web.Controllers
     public class ProductController : Controller
     {
         private IProductService _productService;
+        private ICategoryService _categoryService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
+            _categoryService = categoryService;
         }
         public async Task<IActionResult> ProductIndex()
         {
@@ -32,6 +35,8 @@ namespace Bio.Web.Controllers
 
         public async Task<IActionResult> CreateProduct()
         {
+            await PopulateCategories();
+
             return View();
         }
 
@@ -48,6 +53,10 @@ namespace Bio.Web.Controllers
                     return RedirectToAction(nameof(ProductIndex));
                 }
             }
+            else
+            {
+                await PopulateCategories();
+            }
            
             return View(model);
         }
@@ -59,6 +68,9 @@ namespace Bio.Web.Controllers
             if (response != null && response.IsSuccess)
             {
                 ProductDTO model = JsonConvert.DeserializeObject<ProductDTO>(Convert.ToString(response.Result));
+
+                await PopulateCategories();
+
                 return View(model);
             }
 
@@ -78,6 +90,10 @@ namespace Bio.Web.Controllers
                     return RedirectToAction(nameof(ProductIndex));
                 }
             }
+            else
+            {
+                await PopulateCategories();
+            }
 
             return View(model);
         }
@@ -89,6 +105,9 @@ namespace Bio.Web.Controllers
             if (response != null && response.IsSuccess)
             {
                 ProductDTO model = JsonConvert.DeserializeObject<ProductDTO>(Convert.ToString(response.Result));
+
+                await PopulateCategories();
+
                 return View(model);
             }
 
@@ -108,8 +127,24 @@ namespace Bio.Web.Controllers
                     return RedirectToAction(nameof(ProductIndex));
                 }
             }
+            else
+            {
+                await PopulateCategories();
+            }
 
             return View(model);
+        }
+
+        private async Task PopulateCategories()
+        {
+            var response = await _categoryService.GetAllCategoriesAsync<ResponseDTO>();
+
+            if (response != null && response.IsSuccess)
+            {
+                List<CategoryDTO> categories = JsonConvert.DeserializeObject<List<CategoryDTO>>(Convert.ToString(response.Result));
+
+                ViewBag.Categories = new SelectList(categories, "CategoryId", "Name");
+            }
         }
     }
 }
