@@ -1,6 +1,7 @@
 ﻿using Bio.Services.Business.Interfaces;
 using Bio.Services.Models;
 using Bio.Services.ProductAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

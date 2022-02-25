@@ -1,6 +1,8 @@
 ﻿using Bio.Services.Business.Interfaces;
 using Bio.Services.Models;
+using Bio.Services.ProductAPI.Helper;
 using Bio.Services.ProductAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,7 +22,8 @@ namespace Bio.Services.ProductAPI.Controllers
             _productService = productService;
             _response = new ResponseDTO();
         }
-        
+
+        [Authorize]
         [HttpGet]
         public async Task<object> Get()
         {
@@ -41,6 +44,7 @@ namespace Bio.Services.ProductAPI.Controllers
             return _response;
         }
 
+        [Authorize]
         [HttpGet]
         [Route("{id}")]
         public async Task<object> Get(int id)
@@ -62,6 +66,7 @@ namespace Bio.Services.ProductAPI.Controllers
             return _response;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<object> Post([FromBody] ProductDTO productDTO)
         {
@@ -82,6 +87,7 @@ namespace Bio.Services.ProductAPI.Controllers
             return _response;
         }
 
+        [Authorize]
         [HttpPut]
         public async Task<object> Put([FromBody] ProductDTO productDTO)
         {
@@ -102,6 +108,7 @@ namespace Bio.Services.ProductAPI.Controllers
             return _response;
         }
 
+        [Authorize(Roles = Roles.Admin)]
         [HttpDelete]
         [Route("{id}")]
         public async Task<object> Delete(int id)
