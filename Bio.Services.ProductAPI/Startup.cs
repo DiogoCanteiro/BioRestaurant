@@ -107,6 +107,7 @@ namespace Bio.Services.ProductAPI
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
