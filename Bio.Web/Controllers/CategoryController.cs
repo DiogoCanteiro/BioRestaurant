@@ -1,5 +1,6 @@
 ﻿using Bio.Web.Models;
 using Bio.Web.Services.IServices;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -30,18 +31,14 @@ namespace Bio.Web.Controllers
             return View(list);
         }
 
-        public async Task<IActionResult> CreateCategory()
-        {
-            return View();
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateCategory(CategoryDTO model)
         {
             if (ModelState.IsValid)
             {
-                var response = await _categoryService.CreateCategoryAsync<ResponseDTO>(model);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var response = await _categoryService.CreateCategoryAsync<ResponseDTO>(model, accessToken);
 
                 if (response != null && response.IsSuccess)
                 {
@@ -71,7 +68,8 @@ namespace Bio.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = await _categoryService.UpdateCategoryAsync<ResponseDTO>(model);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var response = await _categoryService.UpdateCategoryAsync<ResponseDTO>(model, accessToken);
 
                 if (response != null && response.IsSuccess)
                 {
@@ -101,7 +99,8 @@ namespace Bio.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var response = await _categoryService.DeleteCategoryAsync<ResponseDTO>(model.CategoryId);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var response = await _categoryService.DeleteCategoryAsync<ResponseDTO>(model.CategoryId, accessToken);
 
                 if (response != null && response.IsSuccess)
                 {

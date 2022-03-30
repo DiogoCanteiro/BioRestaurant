@@ -12,26 +12,26 @@ namespace Bio.Web.Services
     {
         public CategoryService(IHttpClientFactory clientFactory) : base(clientFactory) { }
 
-        public async Task<T> CreateCategoryAsync<T>(CategoryDTO categoryDTO)
+        public async Task<T> CreateCategoryAsync<T>(CategoryDTO categoryDTO, string accessToken)
         {
             var apiRequest = new ApiRequest
             {
                 APIType = Configurations.APIType.POST,
                 Data = categoryDTO,
                 Url = $"{Configurations.ProductApiBase}/api/categories",
-                AccessToken = ""
+                AccessToken = accessToken
             };
 
             return await SendAsync<T>(apiRequest);
         }
 
-        public async Task<T> DeleteCategoryAsync<T>(int id)
+        public async Task<T> DeleteCategoryAsync<T>(int id, string accessToken)
         {
             var apiRequest = new ApiRequest
             {
                 APIType = Configurations.APIType.DELETE,
                 Url = $"{Configurations.ProductApiBase}/api/categories/{id}",
-                AccessToken = ""
+                AccessToken = accessToken
             };
 
             return await SendAsync<T>(apiRequest);
@@ -43,7 +43,6 @@ namespace Bio.Web.Services
             {
                 APIType = Configurations.APIType.GET,
                 Url = $"{Configurations.ProductApiBase}/api/categories",
-                AccessToken = ""
             };
 
             return await SendAsync<T>(apiRequest);
@@ -55,20 +54,19 @@ namespace Bio.Web.Services
             {
                 APIType = Configurations.APIType.GET,
                 Url = $"{Configurations.ProductApiBase}/api/categories/{id}",
-                AccessToken = ""
             };
 
             return await SendAsync<T>(apiRequest);
         }
 
-        public async Task<T> UpdateCategoryAsync<T>(CategoryDTO categoryDTO)
+        public async Task<T> UpdateCategoryAsync<T>(CategoryDTO categoryDTO, string accessToken)
         {
             var apiRequest = new ApiRequest
             {
                 APIType = Configurations.APIType.PUT,
                 Data = categoryDTO,
                 Url = $"{Configurations.ProductApiBase}/api/products",
-                AccessToken = ""
+                AccessToken = accessToken
             };
 
             return await SendAsync<T>(apiRequest);

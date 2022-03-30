@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,5 +23,8 @@ namespace Bio.Web.Models
         public List<CategoryDTO> Categories { get; set; }
 
         public string ImageUrl { get; set; }
+
+        [Range(1, 100)]
+        public int Count { get; set; }
     }
 }

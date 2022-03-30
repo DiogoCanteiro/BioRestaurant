@@ -37,25 +37,23 @@ namespace Bio.Web.Services
             return await SendAsync<T>(apiRequest);
         }
 
-        public async Task<T> GetAllProductsAsync<T>(string token)
+        public async Task<T> GetAllProductsAsync<T>()
         {
             var apiRequest = new ApiRequest
             {
                 APIType = Configurations.APIType.GET,
                 Url = $"{Configurations.ProductApiBase}/api/products",
-                AccessToken = token
             };
 
             return await SendAsync<T>(apiRequest);
         }
 
-        public async Task<T> GetProductByIdAsync<T>(int id, string token)
+        public async Task<T> GetProductByIdAsync<T>(int id)
         {
             var apiRequest = new ApiRequest
             {
                 APIType = Configurations.APIType.GET,
                 Url = $"{Configurations.ProductApiBase}/api/products/{id}",
-                AccessToken = token
             };
 
             return await SendAsync<T>(apiRequest);

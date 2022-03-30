@@ -15,7 +15,9 @@ namespace Bio.Services.Data.Repositories
 
         public async Task<Product> GetProductById(int productId)
         {
-            return await _db.Products.FirstOrDefaultAsync(x => x.ProductId == productId);
+            return await _db.Products
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync(x => x.ProductId == productId);
         }
 
         public async Task<IEnumerable<Product>> GetProducts()

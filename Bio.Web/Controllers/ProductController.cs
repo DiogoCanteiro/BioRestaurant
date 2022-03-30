@@ -24,8 +24,7 @@ namespace Bio.Web.Controllers
         public async Task<IActionResult> ProductIndex()
         {
             List<ProductDTO> list = new();
-            var accessToken = await HttpContext.GetTokenAsync("access_token");
-            var response = await _productService.GetAllProductsAsync<ResponseDTO>(accessToken);
+            var response = await _productService.GetAllProductsAsync<ResponseDTO>();
 
             if(response != null && response.IsSuccess)
             {
@@ -66,8 +65,7 @@ namespace Bio.Web.Controllers
 
         public async Task<IActionResult> EditProduct(int productId)
         {
-            var accessToken = await HttpContext.GetTokenAsync("access_token");
-            var response = await _productService.GetProductByIdAsync<ResponseDTO>(productId, accessToken);
+            var response = await _productService.GetProductByIdAsync<ResponseDTO>(productId);
 
             if (response != null && response.IsSuccess)
             {
@@ -105,8 +103,7 @@ namespace Bio.Web.Controllers
 
         public async Task<IActionResult> DeleteProduct(int productId)
         {
-            var accessToken = await HttpContext.GetTokenAsync("access_token");
-            var response = await _productService.GetProductByIdAsync<ResponseDTO>(productId, accessToken);
+            var response = await _productService.GetProductByIdAsync<ResponseDTO>(productId);
 
             if (response != null && response.IsSuccess)
             {
