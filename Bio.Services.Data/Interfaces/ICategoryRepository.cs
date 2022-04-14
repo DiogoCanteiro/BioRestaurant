@@ -1,8 +1,8 @@
-﻿using Bio.Services.Data.DbModels;
+﻿using Bio.Services.ProductAPI.Data.DbModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Bio.Services.Data.Interfaces
+namespace Bio.Services.ProductAPI.Data.Interfaces
 {
     public interface ICategoryRepository : IBaseRepository
     {

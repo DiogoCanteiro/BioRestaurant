@@ -1,7 +1,7 @@
-﻿using Bio.Services.Business.Implementations;
-using Bio.Services.Business.Interfaces;
-using Bio.Services.Data.Interfaces;
-using Bio.Services.Data.Repositories;
+﻿using Bio.Services.ProductAPI.Business.Implementations;
+using Bio.Services.ProductAPI.Business.Interfaces;
+using Bio.Services.ProductAPI.Data.Interfaces;
+using Bio.Services.ProductAPI.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

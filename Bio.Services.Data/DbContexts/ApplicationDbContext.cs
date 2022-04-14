@@ -1,7 +1,7 @@
-﻿using Bio.Services.Data.DbModels;
+﻿using Bio.Services.ProductAPI.Data.DbModels;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bio.Services.Data.DbContexts
+namespace Bio.Services.ProductAPI.Data.DbContexts
 {
     public class ApplicationDbContext : DbContext
     {

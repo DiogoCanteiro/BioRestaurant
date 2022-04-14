@@ -1,13 +1,11 @@
-﻿using Bio.Services.Data.DbContexts;
-using Bio.Services.Data.DbModels;
-using Bio.Services.Data.Interfaces;
-using Bio.Services.Models;
+﻿using Bio.Services.ProductAPI.Data.DbContexts;
+using Bio.Services.ProductAPI.Data.DbModels;
+using Bio.Services.ProductAPI.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Bio.Services.Data.Repositories
+namespace Bio.Services.ProductAPI.Data.Repositories
 {
     public class ProductRepository : BaseRepository, IProductRepository
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Bio.Services.Data.DbModels;
-using Bio.Services.Models;
+using Bio.Services.ProductAPI.Data.DbModels;
+using Bio.Services.ProductAPI.Models;
 
-namespace Bio.Services.Business.AutoMapper
+namespace Bio.Services.ProductAPI.Business.AutoMapper
 {
     public class AutoMapperProfiles : Profile
     {

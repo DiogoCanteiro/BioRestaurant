@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Bio.Services.Data.Migrations
+namespace Bio.Services.ProductAPI.Data.Migrations
 {
     public partial class AddProductModelToDb : Migration
     {

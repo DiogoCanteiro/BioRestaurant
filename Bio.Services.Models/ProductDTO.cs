@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Bio.Services.Models
+﻿namespace Bio.Services.ProductAPI.Models
 {
     public class ProductDTO
     {

@@ -13,15 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bio.Services.ProductAPI", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProductAPI", "ProductAPI", "{89E64BBF-9CA3-4507-9797-907D191E81A6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bio.Services.Business", "Bio.Services.Business\Bio.Services.Business.csproj", "{F9C17B4C-31E7-40F2-9658-7637D9581201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bio.Services.ProductAPI.Business", "Bio.Services.Business\Bio.Services.ProductAPI.Business.csproj", "{F9C17B4C-31E7-40F2-9658-7637D9581201}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bio.Services.Data", "Bio.Services.Data\Bio.Services.Data.csproj", "{56977F36-9AB9-4C8F-BDB9-A37106908380}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bio.Services.ProductAPI.Data", "Bio.Services.Data\Bio.Services.ProductAPI.Data.csproj", "{56977F36-9AB9-4C8F-BDB9-A37106908380}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bio.Services.Models", "Bio.Services.Models\Bio.Services.Models.csproj", "{B04FBDED-D733-4CF0-9516-3B9ACAD03D45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bio.Services.ProductAPI.Models", "Bio.Services.Models\Bio.Services.ProductAPI.Models.csproj", "{B04FBDED-D733-4CF0-9516-3B9ACAD03D45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{EA4FEE9F-53C3-4560-B10E-E55896AB7283}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bio.Services.Identity", "Bio.Services.Identity\Bio.Services.Identity.csproj", "{786EC16C-8AC8-447C-B236-537397EA1D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bio.Services.Identity", "Bio.Services.Identity\Bio.Services.Identity.csproj", "{786EC16C-8AC8-447C-B236-537397EA1D8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

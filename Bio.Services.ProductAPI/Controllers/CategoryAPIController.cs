@@ -1,12 +1,10 @@
-﻿using Bio.Services.Business.Interfaces;
-using Bio.Services.Models;
-using Bio.Services.ProductAPI.Helper;
+﻿using Bio.Services.ProductAPI.Business.Interfaces;
 using Bio.Services.ProductAPI.Models;
+using Bio.Services.ProductAPI.Helper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Bio.Services.ProductAPI.Controllers

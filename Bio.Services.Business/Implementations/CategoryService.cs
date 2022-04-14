@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
-using Bio.Services.Business.Interfaces;
-using Bio.Services.Data.DbModels;
-using Bio.Services.Data.Interfaces;
-using Bio.Services.Models;
-using System;
+using Bio.Services.ProductAPI.Business.Interfaces;
+using Bio.Services.ProductAPI.Data.DbModels;
+using Bio.Services.ProductAPI.Data.Interfaces;
+using Bio.Services.ProductAPI.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Bio.Services.Business.Implementations
+namespace Bio.Services.ProductAPI.Business.Implementations
 {
     public class CategoryService : ICategoryService
     {

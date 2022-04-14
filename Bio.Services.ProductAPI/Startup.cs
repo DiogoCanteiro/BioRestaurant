@@ -1,6 +1,6 @@
 using AutoMapper;
-using Bio.Services.Business.AutoMapper;
-using Bio.Services.Data.DbContexts;
+using Bio.Services.ProductAPI.Business.AutoMapper;
+using Bio.Services.ProductAPI.Data.DbContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

@@ -1,11 +1,8 @@
-﻿using Bio.Services.Models;
-using System;
+﻿using Bio.Services.ProductAPI.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Bio.Services.Business.Interfaces
+namespace Bio.Services.ProductAPI.Business.Interfaces
 {
     public interface ICategoryService
     {
