@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bio.Services.Business\Bio.Services.ProductAPI.Business.csproj" />
+    <ProjectReference Include="..\Bio.Services.ProductAPI.Business\Bio.Services.ProductAPI.Business.csproj" />
   </ItemGroup>
 
 </Project>
