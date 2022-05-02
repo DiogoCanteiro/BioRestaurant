@@ -13,7 +13,7 @@ namespace Bio.Services.ProductAPI.Business.AutoMapper
             CreateMap<Product, ProductDTO>()
                 .ForMember(p => p.CategoryName, p => p.MapFrom(src => src.Category.Name));
 
-            //// Categories
+            // Categories
             CreateMap<CategoryDTO, Category>().ReverseMap();
         }
     }
