@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bio.Services.ShoppingCartAPI.Business\Bio.Services.ShoppingCartAPI.Business.csproj" />
     <ProjectReference Include="..\Bio.Services.ShoppingCartAPI.Data\Bio.Services.ShoppingCartAPI.Data.csproj" />
   </ItemGroup>
 

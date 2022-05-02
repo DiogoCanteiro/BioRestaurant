@@ -1,3 +1,5 @@
+using AutoMapper;
+using Bio.Services.ShoppingCartAPI.Business.AutoMapper;
 using Bio.Services.ShoppingCartAPI.Data.DbContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,13 +29,13 @@ namespace Bio.Services.ShoppingCartAPI
             services.AddDbContext<ApplicationDbContext>(options =>
           options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //var mapperConfig = new MapperConfiguration(mc =>
-            //{
-            //    mc.AddProfile(new AutoMapperProfiles());
-            //});
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AutoMapperProfiles());
+            });
 
-            //IMapper mapper = mapperConfig.CreateMapper();
-            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             //services.RegisterDI();
 
